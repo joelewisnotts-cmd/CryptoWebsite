@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Joe's Crypto</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Joe's Crypto</h1>
+    <p class="tagline">Track how much crypto you own and see live USD values (powered by CoinGecko)</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <label for="coin-select">Coin</label>
+      <select id="coin-select"></select>
+
+      <label for="amount-input">Amount</label>
+      <input id="amount-input" type="number" min="0" step="any" placeholder="e.g. 0.5" />
+
+      <button id="add-button">Add / Update Holding</button>
+      <button id="refresh-button" class="secondary">Refresh Prices</button>
+    </section>
+
+    <section class="portfolio">
+      <h2>Your Portfolio</h2>
+      <div class="meta">
+        <span id="last-updated">Prices: not loaded</span>
+      </div>
+      <table id="portfolio-table">
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Amount</th>
+            <th>Price (USD)</th>
+            <th>Value (USD)</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="portfolio-body">
+          <!-- rows inserted by JS -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="total-label">Total Value:</td>
+            <td colspan="2" id="total-value">$0.00</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <section class="notes">
+      <p>Prices are fetched from CoinGecko's free API. No API key required. Refresh to update prices.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Built for Joe — static site ready for S3 hosting.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
