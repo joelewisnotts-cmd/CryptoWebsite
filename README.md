@@ -1,6 +1,7 @@
 # Joe's Crypto — Static Website
 
 This is a small static single-page application that lets you track holdings of major cryptocurrencies and fetches live USD prices from the free CoinGecko API.
+
 I wrote it as an experiement to see how hard it was, and what the challenges were, from building and deploying (AWS cloud native) something using only a browser and AI tooling. Not writing any code (app or IaC) at all!
 
 Files:
