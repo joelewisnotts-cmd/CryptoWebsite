@@ -2,14 +2,11 @@
 const COINS = [
   { id: 'bitcoin', symbol: 'BTC', name: 'Bitcoin' },
   { id: 'ethereum', symbol: 'ETH', name: 'Ethereum' },
-  { id: 'litecoin', symbol: 'LTC', name: 'Litecoin' },
-  { id: 'binancecoin', symbol: 'BNB', name: 'Binance Coin' },
   { id: 'cardano', symbol: 'ADA', name: 'Cardano' },
   { id: 'ripple', symbol: 'XRP', name: 'XRP' },
-  { id: 'dogecoin', symbol: 'DOGE', name: 'Dogecoin' },
   { id: 'polkadot', symbol: 'DOT', name: 'Polkadot' },
   { id: 'solana', symbol: 'SOL', name: 'Solana' },
-  { id: 'tether', symbol: 'USDT', name: 'Tether' }
+  { id: 'stellar', symbol: 'XLM', name: 'Stellar' }
 ];
 
 const SELECT = document.getElementById('coin-select');
