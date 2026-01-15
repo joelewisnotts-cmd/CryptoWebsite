@@ -6,6 +6,7 @@ const COINS = [
   { id: 'ripple', symbol: 'XRP', name: 'XRP' },
   { id: 'polkadot', symbol: 'DOT', name: 'Polkadot' },
   { id: 'solana', symbol: 'SOL', name: 'Solana' },
+  { id: 'algorand', symbol: 'ALGO', name: 'Algorand' },
   { id: 'stellar', symbol: 'XLM', name: 'Stellar' }
 ];
 
