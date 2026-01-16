@@ -156,7 +156,7 @@ function renderPortfolio() {
 
 function formatgbp(n) {
   if (typeof n !== 'number' || !isFinite(n)) return '—';
-  return n >= 1 ? `$${n.toLocaleString(undefined, {maximumFractionDigits:2})}` : `$${n.toFixed(6)}`;
+  return n >= 1 ? `£${n.toLocaleString(undefined, {maximumFractionDigits:2})}` : `£${n.toFixed(6)}`; //Joe changed the string concatenation to have a GBP sybol not a USD
 }
 
 init();
