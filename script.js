@@ -7,7 +7,7 @@ const COINS = [
   { id: 'polkadot', symbol: 'DOT', name: 'Polkadot' },
   { id: 'solana', symbol: 'SOL', name: 'Solana' },
   { id: 'algorand', symbol: 'ALGO', name: 'Algorand' },
-  { id: 'xdc-network', symbol: 'XDC', name: 'XDC' },
+  { id: 'xdc-network', symbol: 'XDC', name: 'XDC Network' },
   { id: 'hedera-hashgraph', symbol: 'HBAR', name: 'Hedera' },
   { id: 'quant', symbol: 'QNT', name: 'Quant' },
   { id: 'stellar', symbol: 'XLM', name: 'Stellar' }
@@ -88,7 +88,7 @@ async function loadPrices() {
   }
   try {
     LAST_UPDATED.textContent = 'Prices: loading...';
-    const resp = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(ids.join(','))}&vs_currencies=gbp`);
+    const resp = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(ids.join(','))}&vs_currencies=usd`);
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const json = await resp.json();
     prices = json;
