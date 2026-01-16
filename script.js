@@ -7,6 +7,9 @@ const COINS = [
   { id: 'polkadot', symbol: 'DOT', name: 'Polkadot' },
   { id: 'solana', symbol: 'SOL', name: 'Solana' },
   { id: 'algorand', symbol: 'ALGO', name: 'Algorand' },
+  { id: 'xdc', symbol: 'XDC', name: 'XDC Network' },
+  { id: 'hedera', symbol: 'HBAR', name: 'Hedera' },
+  { id: 'quant', symbol: 'QNT', name: 'Quant' },
   { id: 'stellar', symbol: 'XLM', name: 'Stellar' }
 ];
 
