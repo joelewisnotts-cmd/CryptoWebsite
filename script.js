@@ -19,7 +19,7 @@ const TOTAL_VALUE = document.getElementById('total-value');
 const LAST_UPDATED = document.getElementById('last-updated');
 
 let portfolio = {}; // { coinId: amount }
-let prices = {}; // { coinId: { usd: number } }
+let prices = {}; // { coinId: { gbp: number } }
 
 function init() {
   populateCoinSelect();
@@ -85,7 +85,7 @@ async function loadPrices() {
   }
   try {
     LAST_UPDATED.textContent = 'Prices: loading...';
-    const resp = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(ids.join(','))}&vs_currencies=usd`);
+    const resp = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${encodeURIComponent(ids.join(','))}&vs_currencies=gbp`);
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const json = await resp.json();
     prices = json;
@@ -106,15 +106,15 @@ function renderPortfolio() {
     const tr = document.createElement('tr');
     tr.innerHTML = '<td colspan="5" style="color:var(--muted);padding:12px">No holdings yet — add a coin and amount above.</td>';
     PORTFOLIO_BODY.appendChild(tr);
-    TOTAL_VALUE.textContent = '$0.00';
+    TOTAL_VALUE.textContent = '£0.00';
     return;
   }
 
   entries.forEach(([coinId, amount]) => {
     const coin = COINS.find(c => c.id === coinId) || { name: coinId, symbol: '' };
     const priceObj = prices[coinId] || {};
-    const priceUsd = typeof priceObj.usd === 'number' ? priceObj.usd : null;
-    const value = priceUsd !== null ? priceUsd * amount : null;
+    const pricegbp = typeof priceObj.gbp === 'number' ? priceObj.gbp : null;
+    const value = pricegbp !== null ? pricegbp * amount : null;
     if (value) total += value;
 
     const tr = document.createElement('tr');
@@ -126,10 +126,10 @@ function renderPortfolio() {
     amtTd.textContent = amount;
 
     const priceTd = document.createElement('td');
-    priceTd.textContent = priceUsd !== null ? formatUsd(priceUsd) : '—';
+    priceTd.textContent = pricegbp !== null ? formatgbp(pricegbp) : '—';
 
     const valueTd = document.createElement('td');
-    valueTd.textContent = value !== null ? formatUsd(value) : '—';
+    valueTd.textContent = value !== null ? formatgbp(value) : '—';
 
     const actionsTd = document.createElement('td');
     const removeBtn = document.createElement('button');
@@ -151,10 +151,10 @@ function renderPortfolio() {
     PORTFOLIO_BODY.appendChild(tr);
   });
 
-  TOTAL_VALUE.textContent = formatUsd(total);
+  TOTAL_VALUE.textContent = formatgbp(total);
 }
 
-function formatUsd(n) {
+function formatgbp(n) {
   if (typeof n !== 'number' || !isFinite(n)) return '—';
   return n >= 1 ? `$${n.toLocaleString(undefined, {maximumFractionDigits:2})}` : `$${n.toFixed(6)}`;
 }
